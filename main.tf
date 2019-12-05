@@ -30,10 +30,10 @@ data "terraform_remote_state" "dev" {
   workspace = "terrform-minimum"
   config = {
     organization = "redlumxnOrg"
-    workspaces = {
-      # name = "minimum-dev"
-      prefix = "minimum-"
-    }
+#    workspaces = {
+#      name = "minimum-dev"
+#      prefix = "minimum-"
+#    }
   }
 }
 
