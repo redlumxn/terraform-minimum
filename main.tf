@@ -1,6 +1,18 @@
 variable "username" {
 }
 
+terraform {
+  backend "remote" {
+    hostname = "app.terraform.io"
+    organization = "redlumxnOrg"
+
+    workspaces {
+      name = "terraform-minimum"
+    }
+  }
+}
+
+
 provider "random" { # an empty for destroying old resources
 }
 
@@ -25,17 +37,6 @@ output "username" {
   value = "Username is ${var.username}. Extra text."
 }
 
-data "terraform_remote_state" "dev" {
-  backend = "remote"
-  workspace = "terraform-minimum"
-  config = {
-    organization = "redlumxnOrg"
-    workspaces = {
-      name = "terraform-minimum"
-#      prefix = "terraform-"
-    }
-  }
-}
 
 output "username-dev" {
   value = data.terraform_remote_state.dev.outputs.username
