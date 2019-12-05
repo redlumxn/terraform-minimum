@@ -38,10 +38,10 @@ output "username" {
 }
 
 
-output "username-dev" {
-  value = data.terraform_remote_state.dev.outputs.username
-}
+#output "username-dev" {
+#  value = data.terraform_remote_state.dev.outputs.username
+#}
 
-output "all-dev" {
-  value = data.terraform_remote_state.dev.outputs
-}
+#output "all-dev" {
+#  value = data.terraform_remote_state.dev.outputs
+#}
